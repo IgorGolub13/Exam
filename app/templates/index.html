@@ -1,0 +1,49 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    {% if title %}
+        <title> {{ title }} - Audioteka</title>
+    {% else %}
+        <title>Audioteka</title>
+    {% endif %}
+{% endblock %}
+
+
+{% for cat, msg in get_flashed_messages(True) %}
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-{{ cat }}">{{ msg }}</li>
+    </ul>
+{% endfor %}
+
+{% from "_render_field.html" import render_field %}
+
+{% block content %}
+
+    <div class="container_3">
+        <ul class="list-unstyled">
+            <li>I need some sleep</li>
+            <li>You can't go home like this</li>
+            <li>I try counting sheep</li>
+            <li>But there's one I always miss</li>
+            <br>
+            <li>Everyone says I'm getting down to low</li>
+            <li>Everyone says you just gotta let it go</li>
+            <li>You just gotta let it gos</li>
+            <li>You just gotta let it go</li>
+            <br>
+            <li>I need some sleep</li>
+            <li>Time to put the old horse down</li>
+            <li>I'm in too deep</li>
+            <li>And the wheels keep spinning round</li>
+            <br>
+            <li>Everyone says you just gotta let it go</li>
+            <li>You just gotta let it go</li>
+            <li>You just gotta let it go</li>
+            <li>You just gotta let it go</li>
+        </ul>
+    </div>
+
+{% endblock %}

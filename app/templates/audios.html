@@ -1,0 +1,53 @@
+
+
+
+{% extends "base.html" %}
+
+{% from "_render_field.html" import render_field %}
+
+{% for cat, msg in get_flashed_messages(True) %}
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-{{ cat }}">{{ msg }}</li>
+    </ul>
+{% endfor %}
+
+
+{% block content %}
+    <html>
+    <head>
+        {% if title %}
+            <title>{{ title }} - Audioteka</title>
+        {% else %}
+            <title>Audioteka</title>
+        {% endif %}
+    </head>
+    <body>
+    {#    <h1>Hi, {{ user.nickname }}!</h1>#}
+    {#    {% for post in posts %}#}
+    {#        <h1>{{ post.author.nickname }}</h1> says: <b>{{ post.body }}</b></p>#}
+    {#    {% endfor %}#}
+
+
+    <div class="container">
+        <div class="container">
+            <div id="blog" class="row">
+                {% for audio in audios %}
+                    <div class="col-md-10 blogShort">
+                        <h2>{{ audio.title }}</h2>
+                        <p1>&nbsp Music class is {{ audio.class_music }}, posted
+                            - {{ audio.date_posted.strftime("%d/%m/%y %H:%M:%S")}}.</p1>
+                        <br>
+                        <p1>&nbsp Author of song is {{ audio.singer }}, the length of sing is
+                            - {{ audio.length }} min.</p1>
+                        <br>
+                        <p1>&nbsp About this song: {{ audio.describe }}, file type is
+                            - {{ audio.data_type }}, the rating of song - {{ audio.rating_ball }} points. </p1>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+
+{% endblock %}
